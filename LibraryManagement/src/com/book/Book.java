@@ -9,6 +9,7 @@ public class Book {
     public String author;
     public int bookCount;
     public float dayMoney;
+    public int flag=1;
     public Book(){}
     public Book(int id,String name,String type,float price,String publishingHouse,String author,int bookCount,float dayMoney)
     {

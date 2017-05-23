@@ -39,6 +39,18 @@ public class test {
 		    bookMysql bmMysql=new bookMysql();
 		    bmMysql.BookIn(book);
 		}
+		if(xuanze==3){
+			DeleteBook dBook=new DeleteBook();
+			int n=input.nextInt();
+		int id	=dBook.setid(n);
+			//System.out.println();
+		if(id!=-1){
+			dBook.delete(id);
+		}
+		else{
+			System.out.println("不能删除");
+		}
+		}
 	}
 
 }
