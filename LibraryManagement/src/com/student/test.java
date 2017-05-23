@@ -51,6 +51,10 @@ public class test {
 			System.out.println("不能删除");
 		}
 		}
+		if (xuanze==4){
+			AllSee allSee=new AllSee();
+			allSee.allSee();
+		}
 	}
 
 }
