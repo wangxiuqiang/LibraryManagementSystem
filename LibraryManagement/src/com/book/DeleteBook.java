@@ -1,5 +1,9 @@
 package com.book;
-
+/*
+ * 
+ * 删除图书
+ * 
+ */
 import javax.tools.Diagnostic;
 
 import java.sql.*;

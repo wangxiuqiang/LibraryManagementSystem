@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 import com.student.student;
-
+/*
+ * 添加图书
+ */
 public class bookMysql {
 
 	public String driver="com.mysql.jdbc.Driver";
@@ -15,7 +17,7 @@ public class bookMysql {
     public void BookIn(Book book) throws Exception{
   	    Class.forName(driver);
   	    Connection BookTable=DriverManager.getConnection(url, user, password);
-  	    String sql1="insert book(id,name,type,price,publishingHouse,author,bookCount,dayMoney) values(?,?,?,?,?,?,?,?)";
+  	    String sql1="insert book(id,name,type,price,publishingHouse,author,bookCount,dayMoney,flag,agoCount) values(?,?,?,?,?,?,?,?,?,?)";
   	    PreparedStatement ps1=BookTable.prepareStatement(sql1);
   	    ps1.setInt(1,book.id);
   	    ps1.setString(2,book.name);
@@ -25,6 +27,8 @@ public class bookMysql {
 	    ps1.setString(6,book.author);
   	    ps1.setInt(7,book.bookCount);
   	    ps1.setFloat(8,book.dayMoney);
+  	    ps1.setInt(9, book.flag);
+  	    ps1.setInt(10, book.bookCount);
   	    ps1.executeUpdate();
   	    ps1.close();
   	    BookTable.close();

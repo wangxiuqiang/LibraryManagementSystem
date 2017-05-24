@@ -1,5 +1,8 @@
 package com.student;
 
+/*
+ * 学生的实现类
+ */
 public class student {
         public String name;
         public int id;

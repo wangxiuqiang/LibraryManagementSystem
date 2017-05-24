@@ -1,4 +1,9 @@
 package com.student;
+
+/**
+ * 测试类
+ * 用于测试函数成功否
+ */
 import java.util.Scanner;
 import com.book.*;
 public class test {
@@ -6,6 +11,9 @@ public class test {
 	public static void main(String[] args) throws Exception {
 		Scanner input=new Scanner(System.in);
         int xuanze=input.nextInt();
+        /*
+         * 学生注册   
+         */
 		if(xuanze==1){
 			System.out.print("欢迎注册,");
 			System.out.println("请输入学号:");
@@ -18,6 +26,9 @@ public class test {
 			studentIn  stuIn=new studentIn();
 			stuIn.studentIn(stu);
 		}
+		/*
+		 * 书籍添加
+		 */
 		else if(xuanze==2){
 			System.out.println("请输入id:");
 			int id=input.nextInt();
@@ -39,6 +50,9 @@ public class test {
 		    bookMysql bmMysql=new bookMysql();
 		    bmMysql.BookIn(book);
 		}
+		/**
+		 * 删除图书
+		 */
 		if(xuanze==3){
 			DeleteBook dBook=new DeleteBook();
 			int n=input.nextInt();
@@ -51,13 +65,26 @@ public class test {
 			System.out.println("不能删除");
 		}
 		}
+		/*
+		 * 查看全部图书
+		 */
 		if (xuanze==4){
 			AllSee allSee=new AllSee();
 			allSee.allSee();
 		}
+		/**
+		 * 借书   ,单个查看图书
+		 */
 		if(xuanze ==5){
 			BorrowBook book=new BorrowBook();
 			book.borrowBook();
+		}
+		/*
+		 * 还书
+		 */
+		if(xuanze==6){
+			Backbook backbook=new Backbook();
+			backbook.backBook();
 		}
 	}
 

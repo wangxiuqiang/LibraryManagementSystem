@@ -1,5 +1,7 @@
 package com.book;
 
+   //书的实现类
+
 public class Book {
     public int id;
     public String name;

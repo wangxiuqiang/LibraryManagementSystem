@@ -1,7 +1,11 @@
 package com.student;
 
 import java.sql.*;
-
+/**
+ * 学生注册 
+ * @author dell
+ *
+ */
 public class studentIn{
 	/*
 	 * 1.连接驱动
