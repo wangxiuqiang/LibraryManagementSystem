@@ -28,7 +28,7 @@ public class DeleteBook {
          statement.close();
          Set.close();
          if(flag!=1){
-        	  return n;
+        	  return n;//当flag=1的时候该书并未借出
          }
          else{
         	 return -1;

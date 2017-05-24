@@ -55,6 +55,10 @@ public class test {
 			AllSee allSee=new AllSee();
 			allSee.allSee();
 		}
+		if(xuanze ==5){
+			BorrowBook book=new BorrowBook();
+			book.borrowBook();
+		}
 	}
 
 }

@@ -1,5 +1,5 @@
 package com.book;
-
+//学生和管理员查看全部图书
 import java.sql.*;
 
 public class AllSee {
