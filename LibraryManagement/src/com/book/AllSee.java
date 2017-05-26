@@ -5,6 +5,7 @@ package com.book;
 
 import java.sql.*;
 
+<<<<<<< HEAD
 import com.main.JdbcDriver;
 
 public class AllSee {
@@ -13,6 +14,16 @@ public class AllSee {
     	JdbcDriver jd=new JdbcDriver();
     	 Class.forName(jd.driver);
    	    Connection See=DriverManager.getConnection(jd.url, jd.user, jd.password);
+=======
+public class AllSee {
+	public String driver="com.mysql.jdbc.Driver";
+    public String url="jdbc:mysql://localhost:3306/Library";  
+    public String user="root";
+    public String password="root";
+    public void allSee() throws Exception{
+    	 Class.forName(driver);
+   	    Connection See=DriverManager.getConnection(url, user, password);
+>>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359
    	   String sql="SELECT * FROM book";
         Statement statement=See.createStatement();
         ResultSet rs =statement.executeQuery(sql);
@@ -22,9 +33,12 @@ public class AllSee {
          System.out.print("\t"+rs.getFloat(4)+"\t"+rs.getString(5)+"\t"+rs.getString(6));
          System.out.println("\t"+rs.getInt(7)+"\t"+rs.getFloat(8));
      }	
+<<<<<<< HEAD
       rs.close();
       statement.close();
       See.close();
       System.out.println("返回上一层请输入0");
+=======
+>>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359
     }
 }

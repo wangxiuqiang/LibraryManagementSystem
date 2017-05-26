@@ -18,6 +18,7 @@ public class test {
 			System.out.print("欢迎注册,");
 			System.out.println("请输入学号:");
 			int id=input.nextInt();
+<<<<<<< HEAD
 //			System.out.println("请输入姓名:");
 //			String name=input.next();
 //			System.out.println("请输入充值金额:");
@@ -25,6 +26,15 @@ public class test {
 //			student stu=new student(id,name,money);
 //			studentIn  stuIn=new studentIn();
 //			stuIn.studentIn(stu);
+=======
+			System.out.println("请输入姓名:");
+			String name=input.next();
+			System.out.println("请输入充值金额:");
+			int money=input.nextInt();
+			student stu=new student(id,name,money);
+			studentIn  stuIn=new studentIn();
+			stuIn.studentIn(stu);
+>>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359
 		}
 		/*
 		 * 书籍添加

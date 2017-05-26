@@ -11,7 +11,11 @@ import java.sql.Statement;
 import java.util.*;
 
 public class BorrowBook {
+<<<<<<< HEAD
       private   int n=1;    
+=======
+    private   int n=1;    
+>>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359
       public void borrowBook() throws Exception{
     	  FindBook fBook=new FindBook();
     	  while(n==1){
@@ -60,9 +64,13 @@ public class BorrowBook {
     		  System.out.println("借阅成功,需要借阅其他图书请输入1;不再借阅按任意键退出");
     	      n=input.nextInt();
     	    }
+<<<<<<< HEAD
             if(n!=1){
             	break;
             }
+=======
+          
+>>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359
     	  }
       }
 }
