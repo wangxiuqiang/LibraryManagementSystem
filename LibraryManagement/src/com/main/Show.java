@@ -16,4 +16,9 @@ public class Show {
     	   System.out.println("请选择需要的操作:");
     	   System.out.println("1.查询库存图书   2.查询已经借阅的图书   3.借阅书籍   4.归还书籍   5.充值   0.退出到主页面");
        }
+       public void showAdmin(){
+    	   System.out.println("-------------------------------------------");
+    	   System.out.println("欢迎admin登录，请选择要执行的操作：");
+    	   System.out.println("1.添加书籍     2.删除书籍    3.查询书籍    0.退回上一页");
+       }
 }

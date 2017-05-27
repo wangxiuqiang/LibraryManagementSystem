@@ -3,6 +3,8 @@ package com.main;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 
+import com.admin.adminMain;
+import com.admin.adminUse;
 import com.book.*;
 import com.student.*;
 
@@ -23,8 +25,10 @@ public class Main {
 	    		 break;
 	    	 }
 	    	 else if(n==1){
-	    		// System.out.println("欢迎"+nameD+"登录图书馆！");
-	    		 break;
+	    		 adminUse adminUse=new adminUse();
+	    		 adminUse.Join();
+	    		 adminMain adminMain=new adminMain();
+	    		 adminMain.go();
 	    	 }
 	    	 else if(n==2){     	    
 	         	 maining.stuInMain();
