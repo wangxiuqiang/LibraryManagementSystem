@@ -7,7 +7,6 @@ import com.main.*;
 public class InputStuIn {
      static Scanner input=new Scanner(System.in);
 	public static student In(){
-		  
 		   System.out.println("欢迎注册，请按照提示信息进行注册！");
 			System.out.println("请输入学号:");
 			int id=input.nextInt();

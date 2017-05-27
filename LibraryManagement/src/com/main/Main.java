@@ -13,19 +13,22 @@ public class Main {
 	     Show show=new Show();//定义输出对象，用于各种输出 简化住函数
 	     show.ShowIn();//输出进入界面
 	     //输入要进入的系统 学生or 管理员
+	        
 	     Maining maining=new Maining();//定义主函数执行的类的对象
 	     StudentInNow sin=new StudentInNow(); //定义学生登录对象
 	     while(true){
-	    	int n=0;
-	    	n=input.nextInt();
+	    	 int n;
+		    	n=input.nextInt();
 	    	 if(n==0){
 	    		 break;
 	    	 }
 	    	 else if(n==1){
 	    		// System.out.println("欢迎"+nameD+"登录图书馆！");
+	    		 break;
 	    	 }
 	    	 else if(n==2){     	    
 	         	 maining.stuInMain();
+	         	 break;
 	    	 }
 	    	 else if(n==3){
 	    		student stu=InputStuIn.In();

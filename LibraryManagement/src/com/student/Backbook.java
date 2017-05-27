@@ -42,10 +42,10 @@ public class Backbook {
     	    	  String sql3="UPDATE book SET flag="+1+" WHERE id="+id;
     	    	  statement.execute(sql3);
     	      }
+    	      String sql3="delete from studentborrow where bookid="+id;
+    	      statement.execute(sql3);
+    	      statement.close();
+    	      connection.close();
     	 }
       }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359

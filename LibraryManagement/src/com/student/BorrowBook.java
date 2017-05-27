@@ -10,13 +10,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
 
+import com.main.Maining;
+
 public class BorrowBook {
-<<<<<<< HEAD
       private   int n=1;    
-=======
-    private   int n=1;    
->>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359
       public void borrowBook() throws Exception{
+    	  float money = 0;
     	  FindBook fBook=new FindBook();
     	  while(n==1){
     	  System.out.println("请输入要借阅的图书编号:");
@@ -32,7 +31,6 @@ public class BorrowBook {
     	  String sql ="SELECT bookCount,dayMoney,flag FROM book where id="+id;
    // 	  String sql1="SELECT bookCount FROM student where id="+;//学生的bookCount 也需要修改
     	  ResultSet rSet=statement.executeQuery(sql);
-    	 
     	  int bookCount=-1;
     	  int flag=1;
     	  float dayMoney=0;
@@ -41,36 +39,75 @@ public class BorrowBook {
     		  dayMoney=rSet.getFloat(2);
     		  flag=rSet.getInt(3);
     	  }
+    	  /**
+    	   * 首先判断钱够不够  不够就冲
+    	   */
+    	  String sqlStuMoney="SELECT money FROM student";
+    	  Statement statement2=connection.createStatement();
+    	  rSet= statement2.executeQuery(sqlStuMoney);
+          while(rSet.next()){
+        	  money=rSet.getFloat(1);
+          }  
+          if(money<(dayMoney*day)){
+        	  System.out.println("卡中余额不足，继续借阅请输入1充值，否则输入0 返回上一页");
+        	  int linshi=input.nextInt();
+        	  if(linshi==1){
+        		  MoneyIn moneyIn=new MoneyIn();
+        		  float moneyin=moneyIn.moneyIn();
+        	  }
+        	  else{
+        		  Maining maining=new Maining();
+        		  maining.goon();
+        	  }
+          }
     	//  System.out.println(flag);
     	  if(bookCount==0){
     		  System.out.println("该书籍已经被借阅光了,请重新输入:");
     		  continue;
     	  }
     	  else {
-    		 float money = 0;
-    		  // 学生的id也要添加过来然后把他们的bookCount数加1  学生帐号里 的钱扣除
+    		 
+    		  // 学生的id也要添加过来然后把他们的bookCount数加1  学生帐号里 的钱扣除   并且学生借的书也放入数据库
     		  String sql2="update  book set bookCount="+(bookCount-1)+",flag="+3+" where id="+id;
-              Statement statement2=connection.createStatement();
               statement2.execute(sql2);
-              String sqlStuMoney="SELECT money FROM student";
-              rSet= statement2.executeQuery(sqlStuMoney);
-              while(rSet.next()){
-            	  money=rSet.getFloat(1);
-              }
+              String sqljoin="insert studentborrow(bookid,id,name,type,publishingHouse,author) values(?,?,?,?,?,?)";
+             
+              String sqlqu="select id,name,type,publishingHouse,author from book where id="+id;
+            
+              
+              int bookid = 0;
+              String name="",type="",publishingHouse="",author="";
+              ResultSet rSet2=statement2.executeQuery(sqlqu);
+             while(rSet2.next()){
+            	 bookid=rSet2.getInt(1);
+            	 name=rSet2.getString(2);
+            	 type=rSet2.getString(3);
+            	 publishingHouse=rSet2.getString(4);
+            	 author=rSet2.getString(5);
+             }
             //  System.out.println(money);
             String sqlMoney="UPDATE student SET money="+(money-dayMoney*day)+"WHERE id="+1;
-               statement2.execute(sqlMoney);
+             statement2.execute(sqlMoney);
+             PreparedStatement statement3=connection.prepareStatement(sqljoin);
+             statement3.setInt(1, bookid);
+             statement3.setInt(2, id);
+             statement3.setString(3,name);
+             statement3.setString(4, type);
+             statement3.setString(5, publishingHouse);
+             statement3.setString(6, author);
+             statement3.executeUpdate();
               statement2.close();
+              statement.close();
+              statement3.close();
+              rSet.close();
+              rSet2.close();
+              connection.close();
     		  System.out.println("借阅成功,需要借阅其他图书请输入1;不再借阅按任意键退出");
     	      n=input.nextInt();
     	    }
-<<<<<<< HEAD
             if(n!=1){
             	break;
             }
-=======
-          
->>>>>>> 4a9fef8ca8d69f45a67197aa4ffd99e8b450c359
     	  }
       }
 }

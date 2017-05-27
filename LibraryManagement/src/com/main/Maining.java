@@ -1,8 +1,12 @@
 package com.main;
 
+import java.io.BufferedWriter;
 import java.util.Scanner;
 
 import com.book.AllSee;
+import com.book.DeleteBook;
+import com.student.AgoBorrow;
+import com.student.Backbook;
 import com.student.BorrowBook;
 import com.student.StudentInNow;
 import com.main.*;
@@ -47,17 +51,37 @@ public class Maining {
 					 int back=input.nextInt();
 					 if(back==0){
 						goon();
-					 }		
+					 }	 
 			}
 			else if(way==2){
-					///continue;
+					AgoBorrow ago=new AgoBorrow();
+					ago.ago(nameD);
+					System.out.println("查询成功，输入0返回上一页");
+					int back=input.nextInt();
+					 if(back==0){
+						goon();
+					 }	
 			}
 			else if(way==3){
 					BorrowBook bb=new BorrowBook();
 					bb.borrowBook();
+					System.out.println("借书成功，输入0返回上一页");
+					 int back=input.nextInt();
+					 if(back==0){
+						goon();
+					 }	
 			}	
 			else if(way==0){
 				Main.main(null);
+			}
+			else if (way==4){
+				Backbook backbook= new Backbook();
+				backbook.backBook();
+				System.out.println("还书成功，输入0返回上一页");
+				 int back=input.nextInt();
+				 if(back==0){
+					goon();
+				 }	
 			}
 			
 	 }
