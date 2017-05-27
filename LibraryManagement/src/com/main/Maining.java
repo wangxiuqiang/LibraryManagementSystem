@@ -2,20 +2,20 @@ package com.main;
 
 import java.io.BufferedWriter;
 import java.util.Scanner;
-
 import com.book.AllSee;
 import com.book.DeleteBook;
 import com.student.AgoBorrow;
 import com.student.Backbook;
 import com.student.BorrowBook;
+import com.student.MoneyIn;
 import com.student.StudentInNow;
 import com.main.*;
 
 public class Maining {
+	public static int id;
 	 Show show=new Show();//定义输出对象，用于各种输出 简化函数
 	 Scanner input=new Scanner(System.in);
 	 String nameD="";
-	 StudentInNow sin=new StudentInNow(); //定义学生登录对象	 
 	 /**
      * 当n==2 时的执行情况，即学生登录时要执行的步骤
      * @throws Exception 
@@ -24,6 +24,8 @@ public class Maining {
 	 public void stuInMain() throws Exception{
     	 int count=0;
     	 show.ShowStuInNow();//输出信息
+    	 id=input.nextInt();
+    	 StudentInNow sin=new StudentInNow(id); //定义学生登录对象	 
 		 while(count<3){
 		 nameD=sin.InNow();//调用函数测试id和密码是否相等，相等返回用户名
 		 if(nameD!=null){
@@ -83,7 +85,10 @@ public class Maining {
 					goon();
 				 }	
 			}
-			
+			else if(way==5){
+				MoneyIn moneyIn=new MoneyIn();
+				moneyIn.moneyIn();
+			}
 	 }
 }
 

@@ -7,12 +7,16 @@ import com.main.JdbcDriver;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.*;
 
+  
 public class StudentInNow {
 	JdbcDriver jd=new JdbcDriver();
-	
+	public int id;
+	public StudentInNow(int id){
+		this.id=id;
+	}
         public String InNow() throws Exception{
         	Scanner input=new Scanner(System.in);
-        	 int id= input.nextInt();
+             //System.out.println(id);
         	 System.out.println("请输入学生密码：");
         	 String passwd=input.next();
         	 Class.forName(jd.driver);
@@ -34,7 +38,7 @@ public class StudentInNow {
             else {
             		return null;
             }
-		
-			
         }
+      
+
 }

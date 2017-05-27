@@ -15,7 +15,7 @@ public class Main {
 	     //输入要进入的系统 学生or 管理员
 	        
 	     Maining maining=new Maining();//定义主函数执行的类的对象
-	     StudentInNow sin=new StudentInNow(); //定义学生登录对象
+	//     StudentInNow sin=new StudentInNow(); //定义学生登录对象
 	     while(true){
 	    	 int n;
 		    	n=input.nextInt();
