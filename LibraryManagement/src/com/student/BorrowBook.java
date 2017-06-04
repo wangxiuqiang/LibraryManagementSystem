@@ -21,7 +21,7 @@ public class BorrowBook {
     	  while(n==1){
     	  System.out.println("请输入要借阅的图书编号:");
     	  Scanner input=new Scanner(System.in);
-    	  int id=input.nextInt();
+    	  int Bookid=input.nextInt();
     	  System.out.println("请输入借阅的时间:");
     	  int day=input.nextInt();
     	  Class.forName(fBook.driver);
@@ -32,8 +32,8 @@ public class BorrowBook {
           Connection connection=DriverManager.getConnection(fBook.url, fBook.user, fBook.password);
     	  Statement statement=connection.createStatement();
     	  Statement statement2=connection.createStatement();
-    	  String sql ="SELECT bookCount,dayMoney,flag FROM book where id="+id;
-    	  ResultSet rSet=statement.executeQuery(sql);
+    	  String sqlSelectBook="SELECT bookCount,dayMoney,flag FROM book where id="+Bookid;
+    	  ResultSet rSet=statement.executeQuery(sqlSelectBook);
     	  int bookCount=-1;
     	  int flag=1;
     	  float dayMoney=0;
@@ -84,19 +84,21 @@ public class BorrowBook {
     		   * sql1 修改学生的借书的数量
     		   */
               System.out.println("需要借阅的图书为:");
-        	  fBook.findBook(id);
-              String sql1="SELECT bookCount FROM student where id="+maining.id;//学生的bookCount 也需要修改
-              String sql2="update  book set bookCount="+(bookCount-1)+",flag="+3+" where id="+id;
-              ResultSet resultSet=statement.executeQuery(sql1);
+        	  fBook.findBook(Bookid);
+              String sqlQueryStuId="SELECT bookCount FROM student where id="+maining.id;//学生的bookCount 也需要修改
+              String sqlBookCount="update  book set bookCount="+(bookCount-1)+",flag="+3+" where id="+Bookid;
+             
+              ResultSet resultSet=statement.executeQuery(sqlQueryStuId);
               int bookCountStu=0;
               while(resultSet.next()){
             	 bookCountStu=resultSet.getInt(1);
               }
               int a=bookCountStu;
-             
-              statement2.execute(sql2);
+              String sqlstudentBookCount="update student set bookCount="+(bookCountStu+1)+" where id="+maining.id;
+              statement2.execute(sqlBookCount);
+              statement2.execute(sqlstudentBookCount);
               String sqljoin="insert studentborrow(bookid,id,name,type,publishingHouse,author) values(?,?,?,?,?,?)";
-              String sqlqu="select id,name,type,publishingHouse,author from book where id="+id;
+              String sqlqu="select id,name,type,publishingHouse,author from book where id="+Bookid;
               int bookid = 0;
               String name="",type="",publishingHouse="",author="";
               ResultSet rSet2=statement2.executeQuery(sqlqu);

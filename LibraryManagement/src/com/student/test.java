@@ -10,10 +10,12 @@ public class test {
 
 	public static void main(String[] args) throws Exception {
 		Scanner input=new Scanner(System.in);
-		int test=input.nextInt();
-//		if(test==1){
-//			MoneyIn moneyIn=new MoneyIn();
-//		//	moneyIn.moneyIn();
-//		}
+		boolean m;
+		boolean n;
+		int  a=1,b=2,c=2,d=4;
+		m=a>b;
+		n=c>d;
+		System.out.println(m+"  "+n);
 	}
+	
 }
